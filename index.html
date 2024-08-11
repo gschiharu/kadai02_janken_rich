@@ -1,0 +1,73 @@
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>海外企業の日本進出支援サービス</title>
+    <!-- jQueryを読み込む -->
+    <script src="js/jquery-2.1.3.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header>
+        <h1>海外企業の日本進出支援サービス</h1>
+    </header>
+
+    <main>
+        <p><strong>あなたのビジネスをサポートする3つのサービス</strong></p>
+        <p>どのサービスが必要ですか？</p>
+        <div class="card" id="service0">
+            <img src="img/service0.png" alt="通訳サービス">
+            <h5>通訳サービス</h5>
+            <button class="service-btn" data-service="0">通訳</button>
+        </div>
+        <div class="card" id="service1">
+            <img src="img/service1.png" alt="翻訳サービス">
+            <h5>翻訳サービス</h5>
+            <button class="service-btn" data-service="1">翻訳</button>
+        </div>
+        <div class="card" id="service2">
+            <img src="img/service2.png" alt="Coo代行サービス">
+            <h5>Coo代行サービス</h5>
+            <button class="service-btn" data-service="2">Coo代行</button>
+        </div>
+
+        <div class="decision_container">
+            <div id="decision01">
+                <span id="defaultServiceText">サービスがここに表示されます</span>
+            </div>
+            <h1>×</h1>
+            <div id="decision02">
+                <span id="defaultPersonText">担当者がここに表示されます</span>
+            </div>
+        </div>
+
+        <div id="result"></div>
+    </main>
+
+    <script>
+        $(document).ready(function() {
+            const services = ['通訳', '翻訳', 'Coo代行'];
+            const persons = {
+                0: { name: 'Kate', img: 'img/person0.png' }, // 通訳サービス -> Kate
+                1: { name: 'Mei', img: 'img/person2.png' },  // 翻訳サービス -> Mei
+                2: { name: 'Chi', img: 'img/person1.png' }   // Coo代行 -> Chi
+            };
+
+            $('.service-btn').click(function() {
+                const serviceIndex = $(this).data('service');
+
+                // サービス画像とテキストを設定
+                $('#decision01').html('<img src="img/service' + serviceIndex + '.png" width="200" height="180">');
+
+                // 担当者画像とテキストを設定
+                const selectedPerson = persons[serviceIndex];
+                $('#decision02').html('<img src="' + selectedPerson.img + '" width="200" height="180">');
+
+                // 結果を表示
+                $('#result').text('あなたが選んだサービスは【' + services[serviceIndex] + '】です。担当者は【' + selectedPerson.name + '】です。');
+            });
+        });
+    </script>
+</body>
+</html>
