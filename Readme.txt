@@ -6,7 +6,7 @@ JS2-じゃんけんアプリリッチVer
 じゃんけんアプリの内容を応用して、日本進出支援サービスと担当者のマッチングのイメージをつくりました。
 
 ## ③DEMO
-
+https://gschiharu.github.io/kadai02_janken_rich/
 
 ## ④作ったアプリケーション用のIDまたはPasswordがある場合
 
